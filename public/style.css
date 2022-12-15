@@ -1,0 +1,19 @@
+body {
+    background-color: slategray;
+}
+
+.app {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    align-content: center;
+
+
+}
+
+nav {
+    display: flex;
+    align-content: space-between;
+}
