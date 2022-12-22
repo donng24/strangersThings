@@ -14,7 +14,4 @@ return (
 
 
 
-
-
-
 export default Post

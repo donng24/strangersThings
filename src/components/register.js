@@ -17,8 +17,8 @@ const Register = () => {
       },
       body: JSON.stringify({
         user: {
-        username: 'donng24', 
-        password: 'Ng132474$'
+        username: `${username}`, 
+        password: `${password}`
         }}),
     })
       .then(response => response.json())

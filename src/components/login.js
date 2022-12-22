@@ -1,18 +1,20 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./style.css"
 
-const TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ExMjkyYzhiOTJlYTAwMTczMjc5Y2MiLCJ1c2VybmFtZSI6ImRvbm5nMjQiLCJpYXQiOjE2NzE1MDYyMjB9.pUbolQdZSbp7GaF9WaWDY9ZBREvvYh3vlbqssuljQ70"
 
 
-const Login = () => {
+const Login = ({setToken}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-  
+    const history = useHistory();
+
     async function handleLogin(event) {
       event.preventDefault();
-  
+        
+    
+        
       try {
         const response = await fetch('https://strangers-things.herokuapp.com/api/2209-ftb-ct-web-pt/users/login', {
           method: 'POST',
@@ -21,25 +23,30 @@ const Login = () => {
           },
           body: JSON.stringify({ 
             user: {
-            username: 'donng24', 
-            password: 'Ng132474$' 
+            username: `${username}`, 
+            password:  `${password}`
             }
         }),
     });
-        const data = await response.json();
-  
-        if (response.ok) {
-          localStorage.setItem(TOKEN, data.token);
-          window.location.href = '/protected';
+        const json = await response.json();
+    
+
+        if (response.ok) { 
+             setToken(json.data.token)
+          localStorage.setItem("loginData", json.data.token);
+            history.push("/home")
+         
         } else {
           setError(data.message);
         }
       } catch (error) {
+        console.error(error)
         setError('An unexpected error occurred.');
       }
     }
-  
+    
     return (
+       
       <form onSubmit={handleLogin} className="login-section">
         {error && <p>{error}</p>}
         <label htmlFor="username">Username:</label>
@@ -56,12 +63,16 @@ const Login = () => {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
+    
+
         <button type="submit" className="submit">Log in</button>
       </form>
+        
+        
     );
   }
   
-
+ 
 
 
 

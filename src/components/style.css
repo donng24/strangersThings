@@ -73,6 +73,7 @@ body {
     margin: 3px 0;
     box-sizing: border-box;
     border-radius: 1px;
+    position: absolute;
 }
 
 .submit {
@@ -100,8 +101,10 @@ body {
     margin: 3px 0;
     box-sizing: border-box;
     border-radius: 1px;
+    position:absolute;
 }
 
 .registerButton {
     margin:10px
 }
+

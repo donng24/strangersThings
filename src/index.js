@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
-// import "./style.css";
- 
 import { Home, Post, Login, Register } from "./components";
 
+
+
 const App = () => {
+  const [token, setToken] = useState(localStorage.getItem("loginData"))
+  console.log(localStorage.getItem("loginData"))
   return (
     <div className="app">
       <Router>
@@ -41,7 +43,8 @@ const App = () => {
           </Route>
 
           <Route path="/login">
-            <Login />
+            <Login setToken={setToken}
+            token={token}/>
           </Route>
 
           <Route path="/register">
