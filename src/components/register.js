@@ -24,12 +24,13 @@ const Register = () => {
       .then(response => response.json())
       .then(result => {
         console.log(result);
-        // Do something with the response data, such as displaying a success message or redirecting to the login page
+       
       })
       .catch(console.error) ;
-        // Handle any errors that may occur
+        
       
   };
+
 
   return (
 

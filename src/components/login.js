@@ -8,13 +8,12 @@ const Login = ({setToken}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const history = useHistory();
 
     async function handleLogin(event) {
       event.preventDefault();
-        
-    
-        
+      
       try {
         const response = await fetch('https://strangers-things.herokuapp.com/api/2209-ftb-ct-web-pt/users/login', {
           method: 'POST',
@@ -29,8 +28,7 @@ const Login = ({setToken}) => {
         }),
     });
         const json = await response.json();
-    
-
+        
         if (response.ok) { 
              setToken(json.data.token)
           localStorage.setItem("loginData", json.data.token);
@@ -41,7 +39,7 @@ const Login = ({setToken}) => {
         }
       } catch (error) {
         console.error(error)
-        setError('An unexpected error occurred.');
+        setError('Unexpected error has occurred.');
       }
     }
     

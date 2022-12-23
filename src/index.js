@@ -39,7 +39,7 @@ const App = () => {
           </Route>
 
           <Route path="/post">
-            <Post />
+            <Post token={token}/>
           </Route>
 
           <Route path="/login">
