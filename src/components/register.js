@@ -3,7 +3,7 @@ import {useState} from 'react'
 
 const API_URL = 'https://strangers-things.herokuapp.com/api/2209-FTB-CT-WEB-PT/users/register'
 
-const Register = () => {
+const Register = ({token}) => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
 
@@ -33,7 +33,8 @@ const Register = () => {
 
 
   return (
-
+    <div>
+    {token !== undefined ? 'Welcome!' :
     <form onSubmit={handleSubmit} className='registerSection'>
       <br />
       <label htmlFor="name">Username:</label>
@@ -56,6 +57,8 @@ const Register = () => {
       />
       <button type="submit" className='registerButton'>Register!</button>
     </form>
+}
+    </div>
   );
 }
 

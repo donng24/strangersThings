@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
-import { Home, Post, Login, Register } from "./components";
+import { Home, Post, Login, Register, Messages, Logout } from "./components";
 
 
 
@@ -29,6 +29,10 @@ const App = () => {
           <NavLink to="/register" activeClassName="active" className="register-button">
             Register
           </NavLink>
+
+          <NavLink to="/login" activeClassName="active" className="logout-button">
+            Logout
+          </NavLink>
             
             </li>
           </ul>
@@ -50,6 +54,14 @@ const App = () => {
           <Route path="/register">
             <Register />
           </Route>
+
+          <Route path="/login">
+            <Logout token={token}/>
+          </Route>
+
+          {/* <Route path="/messages">
+            <Messages />
+          </Route> */}
 
         </Switch>
       </Router>

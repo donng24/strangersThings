@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./style.css"
 
 const Post = ({token}) => {
@@ -15,8 +15,6 @@ const Post = ({token}) => {
         console.error(error)
         return;
     }
-
-    console.log(willDeliver)
     try {
         const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-ftb-ct-web-pt/posts`, {
             method: 'POST',
@@ -41,7 +39,7 @@ const Post = ({token}) => {
           setError('Unexpected error has occured')
         }
       }
-            console.log(token)
+            
 return (
     <form onSubmit={handleSubmit} className="postForm">
     {isLoggedIn ? (
