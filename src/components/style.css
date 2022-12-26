@@ -112,7 +112,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    
+    padding: 50px
 }
 
 .descriptionForm{
@@ -135,4 +135,25 @@ body {
     position: absolute;
     top: 0px;
     left: 700px;
+}
+
+#strangefoot {
+    font-size: 30px;
+    padding: 20px;
+    display: inline-block;
+    font-family:'Lobster', cursive;
+    text-shadow: 2px 2px 2px black ;
+}
+
+footer{
+    background-color: rgb(77, 71, 64);
+    outline: 5px solid rgb(6, 71, 39);
+    color: rgb(214, 178, 123);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+    box-shadow: 10px 10px 10px black;
+    overflow: auto;
 }
