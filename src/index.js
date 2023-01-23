@@ -14,7 +14,7 @@ const App = () => {
         <nav className="button-container">
           <ul>
             <li>
-          <NavLink path="/" exact activeClassName="active" className="home-button">
+          <NavLink to="/" exact activeClassName="active" className="home-button">
             Home
           </NavLink>
 
@@ -38,7 +38,7 @@ const App = () => {
           </ul>
         </nav>
         <Switch>
-          <Route to="/">
+          <Route path="/">
             <Home />
           </Route>
 
